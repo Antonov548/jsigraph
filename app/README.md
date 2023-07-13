@@ -1,4 +1,4 @@
-# React app to visualise graphs
+# React app to visualize graphs
 
 ## Build
 
