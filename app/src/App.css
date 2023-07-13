@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.graph-container {
+  background-color: #454343;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
