@@ -10,7 +10,7 @@ function App() {
         nodes: [],
         links: [],
       });
-  
+
   // the graph configuration, just override the ones you need
   const myConfig = {
     nodeHighlightBehavior: true,
@@ -27,10 +27,10 @@ function App() {
       highlightColor: "lightblue",
     },
   };
-  
+
   const onClickNode = function(nodeId) {
   };
-  
+
   const onClickLink = function(source, target) {
   };
 
@@ -38,7 +38,7 @@ function App() {
     const worker = new Worker('worker.js');
     worker.postMessage({});
 
-    loadModule({ locateFile: () => require('./jigraph.wasm')}).then((igraph) => {      
+    loadModule({ locateFile: () => require('./jigraph.wasm')}).then((igraph) => {
       // create empty graph
       const g = new igraph.graph();
       igraph.empty(g, 10, false);
@@ -55,7 +55,7 @@ function App() {
       //igraph.ring(g, ringSize, true, false, true);
 
       //igraph.famous(g, "Noperfectmatching");
-      
+
       igraph.famous(g, "Zachary");
 
       // create empty int vector - initialize it
@@ -65,7 +65,7 @@ function App() {
       igraph.edgelist(g, e, false);
 
       const edgelist = e.begin
-      
+
       const graphData = {
         nodes: [],
         links: []
@@ -81,8 +81,8 @@ function App() {
 
       setData(graphData);
 
-      // igraph.destroy(g);
-      // g.delete();
+      igraph.destroy(g);
+      g.delete();
     })
 
   }, [])
